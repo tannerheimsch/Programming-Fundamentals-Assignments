@@ -1,0 +1,346 @@
+<!DOCTYPE html>  
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Lab 5: Nested Ifs</title>
+    <link rel="stylesheet" href="../resources/css/style.css" media="screen">
+    <link rel="stylesheet" href="../resources/css/print.css" media="print">
+    <script src="../resources/lib/jquery/jquery-1.7.2.min.js"></script>
+    <link rel="stylesheet" href="../resources/lib/highlight/styles/default.css">
+    <script src="../resources/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+  <body>
+    <section class="container">
+      <header>
+        <h1>Programming Fundamentals</h1> 
+        <h2><a href="../index.html">Unit 5: Making Decisions</a></h2>
+      </header>
+      
+      <main>
+
+        <h2>Lab 5: Nested Ifs</h2>
+
+        <h4>File: /labs/lab-05-nestedIfs.html</h4>
+
+        <h3>Student Information</h3>
+
+        <ul>
+          <li>Name: Tanner Heimsch</li>
+        </ul>
+
+        <h3>Lab Problem Statement</h3>
+
+        <blockquote><p><strong><em>Write a JavaScript program that asks the user how many kids were in their family when growing up and how many bedrooms there were in the house. For the sake of simplicity let's only code for 1, 2, or 3 or more kids, and 1, 2, 3 or more bedrooms. Look at the following chart and output a message for every combination of kids and bedrooms.</em></strong></p></blockquote>
+
+        <table style="text-align:left; margin-left: 4em;" cellspacing="0">
+          <tr>
+            <td width="25">&nbsp;</td>
+            <td colspan="4"><strong>Bedrooms</strong></td>
+          </tr>
+          <tr>
+            <td rowspan="4"><strong>K</strong><br />
+                    <strong>i</strong><br />
+                    <strong>d</strong><br />
+                    <strong>s</strong></td>
+            <td width="18" height="22">&nbsp;</td>
+            <td width="64"><strong>1</strong></td>
+            <td width="66"><strong>2</strong></td>
+            <td width="100"><strong>&gt;=</strong> <strong>3</strong></td>
+          </tr>
+          <tr>
+            <td><strong>1</strong></td>
+            <td>Lucky</td>
+            <td>Spacious</td>
+            <td>Empty Feeling</td>
+          </tr>
+          <tr>
+            <td><strong>2</strong></td>
+            <td>Cozy</td>
+            <td>Lucky</td>
+            <td>Spacious</td>
+          </tr>
+          <tr>
+            <td><strong>&gt;=</strong> <strong>3</strong></td>
+            <td>Crowded</td>
+            <td>Cozy</td>
+            <td>Lucky</td>
+          </tr>
+        </table>
+
+        <h3>Lab Steps</h3>
+
+        <ol>
+          <li>Open this file in Firefox and Notepad++.</li>
+          <li>Add your name in the appropriate area above.</li>
+          <li>Read the problem statement.</li>
+          <li>Complete the "Nouns and Verbs" section.</li>
+          <li>Complete the "Defining Diagram" section.</li>
+          <li>Complete the "Solution Algorithm" section.</li>
+          <li>Complete the "Checking the Solution Algorithm" section.</li>
+          <li>Code the JavaScript program.
+            <ol>
+              <li>Add code after the line: <code class="varname">YOUR CODE STARTS AFTER THIS LINE:</code> to complete this lab.</li>
+              <li>Your output should look like the <strong>Example Output</strong> at the bottom of this lab.</li>
+              <li>Your code should be efficient and you should avoid unnecessary repetition of code.</li>
+              <li>Remember to follow all coding standards and add appropriate comments!</li>
+              </ol>
+          <li>Test this</li>
+          <ol>
+            <li>How many test cases do you think you need to properly test all possible ways this program will work? I'm only requiring you to provide 3 written ones, but you may need more.
+            <strong>Read the problem carefully to make sure you handle ALL possible cases.</strong></li>
+          </ol>
+        </ol>
+
+        <h3>1. Nouns and Verbs</h3>
+        <ul>
+          <li>Copy the above problem statement and paste it below so it appears in the black box when you refresh the page, underneath the words <code class="varname">PROBLEM STATEMENT</code>.</li>
+          <li>Identify the nouns and verbs in the problem statement and write them in the appropriate locations so they appear in the black box below when you refresh the page.</li>
+        </ul>
+
+<pre class="pseudocode">PROBLEM STATEMENT: Write a JavaScript program that asks the user how many kids were in their 
+  family when growing up and how many bedrooms there were in the house. For the sake of 
+  simplicity let's only code for 1, 2, or 3 or more kids, and 1, 2, 3 or more bedrooms. 
+  Look at the following chart and output a message for every combination of kids and bedrooms.
+
+
+Nouns: how many kids, how many bedrooms, 1 or 2 or 3+ kids/bedrooms, 
+       message for every combination
+
+Verbs: asks, code, output
+</pre>
+
+        <h3>2. Defining Diagram</h3>
+        <ul>
+          <li>Convert the nouns and verbs into variable names and processes and create a defining diagram.</li>
+          <li>Make your variable names <strong>valid JavaScript names</strong> that conform to the course JavaScript Coding Standards.</li>
+          <li>Write down the processes with very short statements, 2 or 3 words. Remember, this is not pseudocode. This is just the process.</li>
+        </ul>
+
+<pre class="pseudocode">
+INPUTS:
+  numberOfKids
+  numberOfBedrooms
+
+PROCESSING:
+  prompt user for numberOfKids
+  prompt user for numberOfBedrooms
+  convert strings to numbers
+  check if numberOfKids is 1, 2, or >=3
+  check if numberOfBedrooms is 1, 2, or >=3
+  determine output based on numberOfKids versus numberOfBedrooms chart
+  output sentence
+
+OUTPUTS:
+  numberOfKids
+  numberOfBedrooms
+  pluralKids
+  pluralBedrooms
+</pre>
+
+        <h3>3. Solution Algorithm</h3>
+        <ul>
+          <li>Create a solution algorithm (using Pseudocode) based on the defining diagram. Remember to give your algorithm a name and use proper indentation.</li>
+          <li>Ensure you include an appropriate level of detail for your input, processing, and output logic.</li>
+        </ul>
+        <p>
+          This solution algorithm will be complex and will require many nested IF
+          statements. There are multiple ways to solve this problem. <strong>Be specific in your steps for this and think through this
+          problem carefully.</strong>
+        </p>
+
+<pre class="pseudocode">
+// YOUR SOLUTION ALGORITHM GOES AFTER THIS LINE:
+
+KidsVersusBedroomsAnalyzer
+  Initialize numberOfKids to 0
+  Initialize numberOfBedrooms to 0
+  Initialize pluralKids to ""
+  Initialize pluralBedrooms to ""
+  Initialize output to ""
+
+  Prompt user for numberOfKids with "Please enter how many kids were in your family when growing up:"
+  Prompt user for numberOfBedrooms with "Please enter how many bedrooms you or your siblings had:"
+  Convert numberOfKids to number
+  Convert numberOfBedrooms to number
+
+  IF numberOfKids = 1 THEN
+    pluralKids = "kid"
+  ELSE
+    pluralKids = "kids"
+  ENDIF
+  IF numberOfBedrooms = 1 THEN
+    pluralBedrooms = "bedroom"
+    IF numberOfKids = 1 THEN
+      messageEnd = "feel lucky!"
+    ELSE IF numberOfKids = 2 THEN
+      messageEnd = "feel cozy!"
+    ELSE IF numberOfKids >= 3 THEN
+      messageEnd = "feel crowded!"
+  ENDIF
+  ELSE IF numberOfBedrooms = 2 THEN
+    pluralBedrooms = "bedrooms"
+  IF numberOfKids = 1 THEN
+      messageEnd = "feel spacious!"
+  ELSE IF numberOfKids = 2 THEN
+      messageEnd = "feel lucky!"
+  ELSE IF numberOfKids >= 3 THEN
+      messageEnd = "feel cozy!"
+  ENDIF
+  ELSE IF numberOfBedrooms >= 3 THEN
+    pluralBedrooms = "bedrooms"
+  IF numberOfKids = 1 THEN
+      messageEnd = "have an empty feeling!"
+  ELSE IF numberOfKids = 2 THEN
+      messageEnd = "feel spacious!"
+  ELSE IF numberOfKids >= 3 THEN
+      messageEnd = "feel lucky!"
+  ENDIF
+END
+
+  output = "With " + numberOfKids + " " + pluralKids + " and " + numberOfBedrooms + " "+ pluralBedrooms + " you must " + messageEnd;
+
+  Display output
+END
+</pre>
+
+        <h3>4. Checking the Solution Algorithm</h3>
+        <ul>
+          <li>Create a test plan for the algorithm.
+            <ul>
+              <li>Don't forget to fill in the <strong>VARIABLES</strong> section! That's easy to miss!</li>
+            </ul>
+          </li>
+          <li>Have <b>at least 3 test cases</b> that test different inputs and outputs. Ensure you cover bad data entry as well as the &quot;golden path.&quot;</li>
+        </ul>
+
+<pre class="pseudocode">
+VARIABLES: numberOfKids, numberOfBedrooms
+
+TEST CASE 1:
+
+  INPUT VALUES: 10, 5
+
+  EXPECTED RESULT: With 10 kids and 5 bedrooms, you must feel lucky!
+
+  ACTUAL RESULT: With 10 kids and 5 bedrooms, you must feel lucky!
+
+TEST CASE 2:
+
+  INPUT VALUES: 0, 0
+
+  EXPECTED RESULT: With 0 kids and 0 bedrooms you must have an empty feeling!
+
+  ACTUAL RESULT: With 0 kids and 0 bedrooms you must have an empty feeling!
+
+TEST CASE 3:
+
+  INPUT VALUES: 44, 1
+
+  EXPECTED RESULT: With 44 kids and 1 bedroom you must feel crowded!
+
+  ACTUAL RESULT: With 44 kids and 1 bedroom you must feel crowded!
+</pre>
+
+        <h3>5. JavaScript Code</h3>
+        <ul>
+          <li>Write the JavaScript code based on everything you've done.</li>
+          <li>You will need to follow the coding standards for the course.</li>
+          <li>Once everything is working, go back and <strong>fill in</strong> the actual results sections in the test plan.</li>
+        </ul>
+
+        <h3>Example Output</h3>
+
+<pre class="output">
+With 1 kid and 3 bedrooms you must have an empty feeling!
+</pre>
+
+<pre class="output">
+With 3 kids and 1 bedroom you must be crowded!
+</pre>
+
+<pre class="output">
+With 2 kids and 2 bedrooms you must feel lucky!
+</pre>
+
+        <h3>Your Output:</h3>
+
+<pre class="output">
+<script id="student_code">
+// YOUR CODE STARTS AFTER THIS LINE:
+
+function KidsVersusBedroomsAnalyzer() {
+  // Variables Defined
+  var numberOfKids = 0;
+  var numberOfBedrooms = 0;
+  var pluralKids = "";
+  var pluralBedrooms = "";
+  var messageEnd = "";
+  var output = "";
+
+  // Prompt user for how many siblings they had, how many bedrooms they each had, and convert to numbers
+  numberOfKids = prompt("Please enter how many kids were in your family when growing up:");
+  numberOfBedrooms = prompt("Please enter how many bedrooms you or your siblings had:");
+  numberOfKids = Number(numberOfKids);
+  numberOfBedrooms = Number(numberOfBedrooms);
+
+  // Determine program opinion based on user input
+  if (numberOfKids === 1) {
+    pluralKids = "kid";
+  } else {
+    pluralKids = "kids";
+  }
+  if (numberOfBedrooms === 1) {
+    pluralBedrooms = "bedroom";
+    if (numberOfKids === 1) {
+      messageEnd = "feel lucky!";
+    } else if (numberOfKids === 2) {
+      messageEnd = "feel cozy!";
+    } else if (numberOfKids >= 3) {
+      messageEnd = "feel crowded!";
+    }
+  } else if (numberOfBedrooms === 2) {
+    pluralBedrooms = "bedrooms";
+    if (numberOfKids === 1) {
+      messageEnd = "feel spacious!";
+    } else if (numberOfKids === 2) {
+      messageEnd = "feel lucky!";
+    } else if (numberOfKids >= 3) {
+      messageEnd = "feel cozy!";
+    }
+  } else if (numberOfBedrooms >= 3 || numberOfKids === 0) {
+    pluralBedrooms = "bedrooms";
+    if (numberOfKids <= 1) {
+      messageEnd = "have an empty feeling!";
+    } else if (numberOfKids === 2) {
+      messageEnd = "feel spacious!";
+    } else if (numberOfKids >= 3) {
+      messageEnd = "feel lucky!";
+    }
+  }
+  // Set output based on determination above
+  output = "With " + numberOfKids + " " + pluralKids + " and " + numberOfBedrooms + " " + pluralBedrooms + " you must " + messageEnd;
+
+  // Display output
+  document.write(output);
+}
+KidsVersusBedroomsAnalyzer();
+// END OF YOUR CODE
+</script>
+</pre>
+
+        <h3>What You Learned</h3>
+        <p>You learned how to write a program that uses nested IF statements to solve problems. This is a non-trivial program that is quite common in business software. </p>
+        <p><a href="../nestedIfs.html">Back</a></p>
+
+      </main>
+      
+      <footer>
+        <p>
+          Latest Version: 1.2303
+        </p>
+      </footer>
+
+    </section>
+  </body>
+</html>

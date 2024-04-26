@@ -1,0 +1,8 @@
+OldCpuSpeed=5500
+NewCpuSpeedCount=0
+NewCpuSpeed=0
+RollingAverage=1000
+RollingAverageIsFromV27=1
+WorkerThreads=2
+CoresPerTest=4
+ComputerGUID=404ac6f11126a8d7536bba4f20561c7c
